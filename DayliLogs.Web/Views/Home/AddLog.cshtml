@@ -1,0 +1,399 @@
+﻿@model DayliLogs.Web.ViewModels.TotalModelVM
+@{
+    ViewBag.Title = "AddLog";
+    Layout = "~/Views/Shared/_InsideLayout.cshtml";
+    var Datetoday = ViewBag.datetoday;
+    var CS = ViewBag.cs;
+    var conter = 0;
+}
+<link href="~/Content/Site.css" rel="stylesheet" />
+<script src="~/Scripts/PersianDatePicker.js"></script>
+<script src="~/Scripts/jquery-1.9.1.min.js"></script>
+<script src="~/Scripts/Enterlog.js"></script>
+
+<script>
+    function dt()
+    {
+        PersianDatePicker.Show(document.getElementById("datepicker"), "@Datetoday");
+    }
+
+</script>
+
+<div class="panel panel-primary panel-data">
+    <div class="panel-heading">
+        <h3 class="panel-title">ثبت گزارش کار روزانه</h3>
+    </div>
+    <div class="panel-body">
+        @using (Html.BeginForm("Insertlog", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <table class="table table-bordered table-striped display field-datatable tbl-requestdoc">
+                <thead>
+                </thead>
+                <tbody>
+                    <tr>
+                        <div class="alert alert-danger alert-dismissable" style="display:none" id="datealert">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                            فیلد تاریخ نمیتواند خالی باشد
+                        </div>
+                    </tr>
+                    <tr>
+                        <td>
+                            نوع فعالیت
+                        </td>
+                        <td class="bluetext">
+                            <span id="chkmo1">مرخصی ساعتی </span>
+                            <input type="checkbox" class="chbHasTime" id="chkmo" name="chkmorkhasi01" style="margin: 10px 5px;" />
+                            <span id="chkma1">ماموریت اداری </span>
+                            <input type="checkbox" class="chbHasTime" id="chkma" name="chkmamooriyat01" style="margin: 10px 5px;" />
+                            <span id="chkghkari1">فعالیت غیر کاری </span>
+                            <input type="checkbox" class="chbHasTime01" id="chkghkari" name="chkghkari01" style="margin: 10px 5px;" />
+                            <span id="chkkari1">فعالیت کاری </span>
+                            <input type="checkbox" class="chbHasTime" id="chkkari" name="chkkari01" style="margin: 10px 5px;" />
+                        </td>
+                    </tr>
+                    <tr id="trFromDate" class="">
+                        <td>تاریخ:</td>
+                        <td>
+                            <div class="calendar-container">
+                                @*ورود تاریخ*@
+
+                                <input type="text" autocomplete="off" id="datepicker" name="Date"
+                                       value="" class="form-control valid" aria-required="true" aria-invalid="false" />
+                                <img title="تقویم" onclick="dt()" src="/images/calendar-icon.png">
+                            </div>
+                            <div class="pull-left lblshifttime" id="lbldatecorrect">فرمت تاریخ  مانند مثال : 1395/12/26</div>
+                        </td>
+                    </tr>
+                    <tr id="trrequester">
+                        <td style="width: 120px">
+                            نام درخواست کننده
+                        </td>
+                        <td>
+                            <select class="selectpicker" name="Requester">
+                                <!--نام درخواست کننده-->
+                                @foreach (var item in Model.UserList)
+                                {
+                                    <option value="@item.Family">@item.Name @item.Family</option>
+                                }
+                            </select>
+                        </td>
+                    </tr>
+                    <tr id="trMoType" class="">
+                        <td style="width: 120px">
+                            نام پروژه:
+                        </td>
+                        <td>
+                            <select class="selectpicker" name="Projectname">
+                                <!--نام پروژه-->
+                                @foreach (var item in Model.RegProject)
+                                {
+                                    <option value="@item.Id">@item.ProjectName</option>
+                                }
+                            </select>
+                        </td>
+                    </tr>
+                    <tr id="trAz" class="">
+                        <td>
+                            از ساعت:
+                        </td>
+                        <td>
+                            <div class="pull-right" id="tt">
+                                <table id="tpFromTimekari" class="texttime" style="direction:ltr">
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                @*ورود ساعت ، ساعت اول کاری*@
+                                                <input type="number" maxlength="2" class="input-sm inputtime txthourfrom aftertimecontrol form-control valid" min="0" max="23" id="tpFromTime_Hour" name="Houraz" value="0" aria-invalid="false" title="ساعت بین 0 تا 24 ">
+                                            </td>
+                                            <td>
+                                                <span class="timespliter">:</span>
+                                            </td>
+                                            <td>
+                                                @*ورود دقیقه ، ساعت اول کاری*@
+                                                <input type="number" maxlength="2" class="input-sm inputtime txtminfrom form-control valid" min="0" max="59" id="tpFromTime_Min" name="Minutaz" value="0" aria-invalid="false" title="دقیقه بین 0 تا 59 ">
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="pull-right lblshifttime" id="lbl">شروع فعالیت </div>
+                        </td>
+                    </tr>
+                    <tr id="trTa">
+                        <td>
+                            تا ساعت:
+                        </td>
+                        <td>
+                            <div class="pull-right" id="tt">
+                                <table id="tpToTime" class="texttime" style="direction:ltr">
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                @* ورود ساعت ، ساعت دوم کاری*@
+                                                <input type="number" maxlength="2" class="input-sm inputtime txthourfrom aftertimecontrol form-control valid" min="0" max="23" id="tpToTime_Hour" name="Hourta" value="0" aria-invalid="false" title="ساعت بین 0 تا 24 ">
+                                            </td>
+                                            <td>
+                                                <span class="timespliter">:</span>
+                                            </td>
+                                            <td>
+                                                @*ورود دقیقه ساعت دوم کاری*@
+                                                <input type="number" maxlength="2" class="input-sm inputtime txtminfrom form-control valid" min="0" max="59" id="tpToTime_Min" name="Minutta" value="0" aria-invalid="false" دقیقه بین 0 تا 59>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="pull-right" id="ttkari">
+                            </div>
+                            <div class="pull-right lblshifttime" id="lbl">پایان فعالیت </div>
+                        </td>
+                    </tr>
+                    <tr id="trtozihat">
+                        <td>
+                            توضیحات :
+                        </td>
+                        <td>
+                            <div class="pull-right col-md-10" dir="rtl" id="ttozihat">
+                                <table id="ttoz" class="texttime" style="direction:ltr">
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <textarea name="Tozihat01" dir="rtl"></textarea>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr id="tronvan">
+                        <td>
+                            عنوان خروجی :
+                        </td>
+                        <td>
+                            <div class="col-md-12" style=" margin-left:15px">
+                                <input type="text" maxlength="100" id="onvankhoroji" name="Onvan" style="margin-left:15px" />
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr id="trtedad">
+                        <td>
+                            تعداد خروجی :
+                        </td>
+                        <td>
+                            <div class="calendar-container texttime" dir="rtl">
+                                <input type="number" maxlength="2" class="input-sm inputtime txtminfrom form-control valid" min="0" max="59" id="tedadkhorooji" name="Tedad" value="00" aria-invalid="false">
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            تاریخ وزمان ثبت:
+                        </td>
+                        <td class="bluetext">
+                            @CS
+                        </td>
+                    </tr>
+
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <div class="crudbtn">
+                                <button type="submit" id="submitButton" name="submit01" class="btn btn-default savebutton"><i class="glyphicon glyphicon-floppy-save saveentity"></i>ارسال</button>
+                                <span>
+                                </span>
+                                <button type="button" class="btn btn-default cancelbutton" onclick="cancelSaveEntity(this, '@Url.Action("Enter", "Home")')" role="button"><i class="glyphicon glyphicon-chevron-left"></i>انصراف</button>
+                            </div>
+                            <span class="field-validation-valid" data-valmsg-for="ServerError" data-valmsg-replace="true"></span>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>}
+    </div>
+</div>
+
+
+<div class="panel panel-primary panel-data">
+    <div class="panel-heading">
+        <h3 class="panel-title">گزارشات ثبت شده امروز</h3>
+    </div>
+    <div class="panel-body">
+        <div class="panelunitheader">
+
+            <table border="1" class="col-md-12">
+                <tbody>
+                    <tr>
+
+                        <td class="col-md-6">
+                            تعداد موارد ثبت شده تا به این لحظه:
+                            <span style="color: blue">@Model.CounterLog</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table border="1" class="col-md-12">
+                <tbody>
+                    <tr>
+                        <td>
+                            <table class="col-md-12">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            تاریخ امروز :
+                                            <span style="color: blue">@Model.Rpersiandatenow</span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                        <td class="col-md-6">
+                            <table class="col-md-12">
+                                <tbody>
+                                    <tr>
+                                        <td class="col-md-6">
+                                            مجموع ساعات کاری :
+                                            <span style="color: blue">@Model.Rmajkari</span>
+                                        </td>
+                                        <td class="col-md-6">
+                                            مجموع ساعات غیر کاری :
+                                            <span style="color: blue">@Model.Rmajghkari</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col-md-6">
+                                            مجموع ساعات مرخصی روزانه  :
+                                            <span style="color: blue">@Model.Rmajmo</span>
+                                        </td>
+                                        <td class="col-md-6">
+                                            مجموع ساعات  ماموریت اداری  :
+                                            <span style="color: blue">@Model.Rmajma</span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table border="1" class="col-md-12">
+                <tbody>
+                    <tr>
+                        <td colspan="5" class="centertext col-md-12 table2excel" style="background-color: #eaeaea">فعالیت های ثبت شده در روز جاری</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="table table-responsive">
+                <table border="1" class="col-md-12 table2excel" id="Data">
+                    <tbody>
+                        <tr class="centertext">
+                            <td class="col-xs-1">ردیف</td>
+                            <td class="col-md-1 ">درخواست کننده</td>
+                            <td class="col-sm-1 ">نوع فعالیت</td>
+                            <td class="col-md-1 ">نام پروژه</td>
+                            <td class="col-md-1 ">تاریخ</td>
+                            <td class="col-md-1 ">شروع</td>
+                            <td class="col-md-1 ">پایان</td>
+                            <td class="col-md-2 ">شرح</td>
+                            <td class="col-md-1 ">خروجی</td>
+                            <td class="col-md-1 ">تعداد خروجی</td>
+
+                        </tr>
+                        @foreach (var item in Model.LogreportList)
+                        {
+                            <tr class="centertext">
+
+                                <td class="col-xs-1" width="100px">
+                                    <div class="scrolbar">@{ conter += 1; } @conter</div>
+                                </td>
+
+                                <td class="col-md-1" width="200px">
+                                    <div class="scrolbar"> @item.Rrequester</div>
+                                </td>
+                                <td class="col-sm-1" width="200px">
+                                    <div class="scrolbar"> <span id="nf">@item.Rnofaaliyat</span></div>
+                                </td>
+                                <td class="col-md-2" width="200px">
+                                    <div class="scrolbar">@item.Rnameproject</div>
+                                </td>
+                                <td class="col-md-1" width="200px">
+                                    <div class="scrolbar">@Model.Rpersiandatenow</div>
+                                </td>
+                                <td class="col-md-1" width="200px">
+                                    <div class="scrolbar">@item.Rstart</div>
+                                </td>
+                                <td class="col-md-1" width="200px">
+                                    <div class="scrolbar">@item.Rend</div>
+                                </td>
+                                <td class="col-md-2" width="200px">
+                                    <div class="scrolbar">@item.Rsharh</div>
+                                </td>
+                                <td class="col-md-1" width="200px">
+                                    <div class="scrolbar">@item.Rnkhorooji</div>
+                                </td>
+                                <td class="col-md-1" width="200px">
+                                    <div class="scrolbar">@item.Rtkhoroji</div>
+                                </td>
+                            </tr>
+                                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <br />
+        <button name="B1" onclick="test();" value="اکسل" class="pull-left">اکسل</button>
+       
+    </div>
+  
+</div>
+<script src="~/Scripts/jquery-1.9.1.min.js"></script>
+<script src="~/Scripts/jquery.table2excel.min.js"></script>
+
+<script type="text/javascript">
+       
+       
+    $("#submitButton").hide();
+    $(document).mousemove(function ()
+    {
+        var str = document.getElementById("datepicker").value;
+        var res = str.match(/^(\d{4})(\/|-)(\d{1,2})(\/|-)(\d{1,2})$/);
+        if ($("#datepicker").val() != '' && res != null) {
+            $("#submitButton").show();
+        }
+        else {
+            $("#submitButton").hide();
+        }
+    });
+    $("#trMoType").hide();
+    $("#trAz").hide();
+    $("#lbl").hide();
+    $("#trTa").hide();
+    $("#tt").hide();
+    $("#trFromDate").hide();
+    $("#submitButton").hide();
+    $("#submitButton").hide();
+    $("#trrequester").hide();
+    $("#trtozihat").hide();
+    $("#tronvan").hide();
+    $("#trtedad").hide();
+    $("#Data > tbody > :contains('ردیف')").addClass('Header');
+    $("#Data > tbody > :contains('ماموریت اداری')").addClass('yellow');
+    $("#Data > tbody > :contains('مرخصی ساعتی')").addClass('blue');
+    $("#Data > tbody > :contains('فعالیت کاری')").addClass('green');
+    $("#Data > tbody > :contains('فعالیت غیر کاری')").addClass('red');
+
+        $("#Data").table2excel({
+            exclude: ".excludeThisClass",
+            name: "Excel Workbook",
+            filename: "SomeFile",//do not include extension
+            fileext: ".xls",
+            exclude_img: true,
+            exclude_links: true,
+            exclude_inputs: true
+          
+        });
+</script>

@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DayliLogs.Web", "DayliLogs.Web\DayliLogs.Web.csproj", "{401B3812-30D3-455B-AC5B-38DB5C69871E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DayliLogs.Model", "DayliLogs.Model\DayliLogs.Model.csproj", "{025FE5F9-5A14-4577-A064-79C7BF9C81AE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{401B3812-30D3-455B-AC5B-38DB5C69871E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{401B3812-30D3-455B-AC5B-38DB5C69871E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{401B3812-30D3-455B-AC5B-38DB5C69871E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{401B3812-30D3-455B-AC5B-38DB5C69871E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{025FE5F9-5A14-4577-A064-79C7BF9C81AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{025FE5F9-5A14-4577-A064-79C7BF9C81AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{025FE5F9-5A14-4577-A064-79C7BF9C81AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{025FE5F9-5A14-4577-A064-79C7BF9C81AE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

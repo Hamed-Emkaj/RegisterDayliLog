@@ -1,0 +1,13 @@
+D:\Dayli Logs\DayliLogs.Web\DayliLogs.Model\bin\Debug\DayliLogs.Model.dll
+D:\Dayli Logs\DayliLogs.Web\DayliLogs.Model\bin\Debug\DayliLogs.Model.pdb
+D:\Dayli Logs\DayliLogs.Web\DayliLogs.Model\obj\Debug\DayliLogs.Model.csprojResolveAssemblyReference.cache
+D:\Dayli Logs\DayliLogs.Web\DayliLogs.Model\obj\Debug\DayliLogs.Model.dll
+D:\Dayli Logs\DayliLogs.Web\DayliLogs.Model\obj\Debug\DayliLogs.Model.pdb
+D:\Dayli Logs\DayliLogs.Web\DayliLogs.Model\bin\Debug\DayliLogs.Model.dll.config
+D:\Dayli Logs\DayliLogs.Web\DayliLogs.Model\bin\Debug\EntityFramework.dll
+D:\Dayli Logs\DayliLogs.Web\DayliLogs.Model\bin\Debug\EntityFramework.SqlServer.dll
+D:\Dayli Logs\DayliLogs.Web\DayliLogs.Model\bin\Debug\EntityFramework.xml
+D:\Dayli Logs\DayliLogs.Web\DayliLogs.Model\bin\Debug\EntityFramework.SqlServer.xml
+D:\Dayli Logs\DayliLogs.Web\DayliLogs.Model\obj\Debug\DayliLogs.Model.Migrations.firsttime.resources
+D:\Dayli Logs\DayliLogs.Web\DayliLogs.Model\obj\Debug\DayliLogs.Model.csproj.GenerateResource.Cache
+D:\Dayli Logs\DayliLogs.Web\DayliLogs.Model\obj\Debug\DayliLogs.Model.Migrations.nulabledate.resources

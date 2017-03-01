@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>سامانه ثبت گزارش کار روزانه به پرداخت ملت</title>
+  <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+  <script src="~/Scripts/modernizr-2.6.2.js"></script>
+  <link href="~/Content/Site.css" rel="stylesheet" />
+</head>
+<body onload="noBack();" onpageshow="if (event.persisted) noBack();" onunload="">
+  <script type="text/javascript">
+    window.history.forward();
+    function noBack() { window.history.forward(); }
+  </script>
+  <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header navbar-text">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        @Html.ActionLink("سامانه ثبت گزارش کار روزانه به پرداخت ملت", "", "", new { @class = "Titel01" })
+      </div>
+    </div>
+  </div>
+  <div class="container body-content">
+    @RenderBody()
+    <hr />
+    <footer>
+      <div>
+        <p style="font-size: 15px">@DateTime.Now.Year © - شرکت به پرداخت ملت  </p>
+      </div>
+    </footer>
+  </div>
+  <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+  <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,300 @@
+﻿@model DayliLogs.Model.LogRoozane
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_InsideLayout.cshtml";
+}
+
+<div class="panel panel-primary panel-data">
+    <div class="panel-heading">
+        <h3 class="panel-title">جزئیات</h3>
+    </div>
+    <div class="panel-body">
+        <table class="table table-bordered table-striped display field-datatable tbl-requestdoc">
+            <thead>
+            </thead>
+            <tbody>
+                <tr id="trrequesterindex">
+                    <td id="requesterlbl">
+                        @Html.DisplayNameFor(model => model.Requester)
+                    </td>
+                    <td>
+                        <div id="inputrequester">
+                            <div class="pull-right" id="tt">
+                                <table id="tpFromTime" class="texttime" style="direction:ltr">
+                                    <tbody>
+                                        <tr id="tbvorood">
+                                            <td>
+                                                @Html.DisplayFor(model => model.Requester)
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        @*<div class="pull-right lblshifttime" id="lblShiftFromTime"></div>*@
+                    </td>
+                </tr>
+                <tr id="trrequesterindex">
+                    <td id="requesterlbl">
+                        @Html.DisplayNameFor(model => model.Az)
+                    </td>
+                    <td>
+                        <div id="inputrequester">
+                            <div class="pull-right" id="tt">
+                                <table id="tpFromTime" class="texttime" style="direction:ltr">
+                                    <tbody>
+                                        <tr id="tbvorood">
+                                            <td>
+                                                @Html.DisplayFor(model => model.Az.Hour) : @Html.DisplayFor(model => model.Az.Minute)
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        @*<div class="pull-right lblshifttime" id="lblShiftFromTime"></div>*@
+                    </td>
+                </tr>
+                <tr id="trrequesterindex">
+                    <td id="requesterlbl">
+                        @Html.DisplayNameFor(model => model.Ta)
+                    </td>
+                    <td>
+                        <div id="inputrequester">
+                            <div class="pull-right" id="tt">
+                                <table id="tpFromTime" class="texttime" style="direction:ltr">
+                                    <tbody>
+                                        <tr id="tbvorood">
+                                            <td>
+                                                @Html.DisplayFor(model => model.Ta.Hour) : @Html.DisplayFor(model => model.Ta.Minute)
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        @*<div class="pull-right lblshifttime" id="lblShiftFromTime"></div>*@
+                    </td>
+                </tr>
+                <tr id="trrequesterindex">
+                    <td id="requesterlbl">
+                        @Html.DisplayNameFor(model => model.Maj)
+                    </td>
+                    <td>
+                        <div id="inputrequester">
+                            <div class="pull-right" id="tt">
+                                <table id="tpFromTime" class="texttime" style="direction:ltr">
+                                    <tbody>
+                                        <tr id="tbvorood">
+                                            <td>
+                                                @Html.DisplayFor(model => model.Maj)
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        @*<div class="pull-right lblshifttime" id="lblShiftFromTime"></div>*@
+                    </td>
+                </tr>
+                <tr id="trrequesterindex">
+                    <td id="requesterlbl">
+                        @Html.DisplayNameFor(model => model.Tozihat)
+                    </td>
+                    <td>
+                        <div id="inputrequester">
+                            <div class="pull-right" id="tt">
+                                <table id="tpFromTime" class="texttime" style="direction:ltr">
+                                    <tbody>
+                                        <tr id="tbvorood">
+                                            <td>
+                                                @Html.DisplayFor(model => model.Tozihat)
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        @*<div class="pull-right lblshifttime" id="lblShiftFromTime"></div>*@
+                    </td>
+                </tr>
+                <tr id="trrequesterindex">
+                    <td id="requesterlbl">
+                        @Html.DisplayNameFor(model => model.Tedad)
+                    </td>
+                    <td>
+                        <div id="inputrequester">
+                            <div class="pull-right" id="tt">
+                                <table id="tpFromTime" class="texttime" style="direction:ltr">
+                                    <tbody>
+                                        <tr id="tbvorood">
+                                            <td>
+                                                @Html.DisplayFor(model => model.Tedad)
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        @*<div class="pull-right lblshifttime" id="lblShiftFromTime"></div>*@
+                    </td>
+                </tr>
+                <tr id="trrequesterindex">
+                    <td id="requesterlbl">
+                        @Html.DisplayNameFor(model => model.onvankhorooji)
+                    </td>
+                    <td>
+                        <div id="inputrequester">
+                            <div class="pull-right" id="tt">
+                                <table id="tpFromTime" class="texttime" style="direction:ltr">
+                                    <tbody>
+                                        <tr id="tbvorood">
+                                            <td>
+                                                @Html.DisplayFor(model => model.onvankhorooji)
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        @*<div class="pull-right lblshifttime" id="lblShiftFromTime"></div>*@
+                    </td>
+                </tr>
+                <tr id="trrequesterindex">
+                    <td id="requesterlbl">
+                        @Html.DisplayNameFor(model => model.TaskDate)
+                    </td>
+                    <td>
+                        <div id="inputrequester">
+                            <div class="pull-right" id="tt">
+                                <table id="tpFromTime" class="texttime" style="direction:ltr">
+                                    <tbody>
+                                        <tr id="tbvorood">
+                                            <td>
+                                                @Html.DisplayFor(model => model.TaskDate.Date.Year ) /@Html.DisplayFor(model => model.TaskDate.Date.Month)/@Html.DisplayFor(model => model.TaskDate.Date.Day)
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        @*<div class="pull-right lblshifttime" id="lblShiftFromTime"></div>*@
+                    </td>
+                </tr>
+                <tr id="trrequesterindex">
+                    <td id="requesterlbl">
+                        @Html.DisplayNameFor(model => model.Mo)
+                    </td>
+                    <td>
+                        <div id="inputrequester">
+                            <div class="pull-right" id="tt">
+                                <table id="tpFromTime" class="texttime" style="direction:ltr">
+                                    <tbody>
+                                        <tr id="tbvorood">
+                                            <td>
+                                                @Html.DisplayFor(model => model.Mo)
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        @*<div class="pull-right lblshifttime" id="lblShiftFromTime"></div>*@
+                    </td>
+                </tr>
+                <tr id="trrequesterindex">
+                    <td id="requesterlbl">
+                        @Html.DisplayNameFor(model => model.Ma)
+                    </td>
+                    <td>
+                        <div id="inputrequester">
+                            <div class="pull-right" id="tt">
+                                <table id="tpFromTime" class="texttime" style="direction:ltr">
+                                    <tbody>
+                                        <tr id="tbvorood">
+                                            <td>
+                                                @Html.DisplayFor(model => model.Ma)
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        @*<div class="pull-right lblshifttime" id="lblShiftFromTime"></div>*@
+                    </td>
+                </tr>
+                <tr id="trrequesterindex">
+                    <td id="requesterlbl">
+                        @Html.DisplayNameFor(model => model.Ka)
+                    </td>
+                    <td>
+                        <div id="inputrequester">
+                            <div class="pull-right" id="tt">
+                                <table id="tpFromTime" class="texttime" style="direction:ltr">
+                                    <tbody>
+                                        <tr id="tbvorood">
+                                            <td>
+                                                @Html.DisplayFor(model => model.Ka)
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        @*<div class="pull-right lblshifttime" id="lblShiftFromTime"></div>*@
+                    </td>
+                </tr>
+                <tr id="trrequesterindex">
+                    <td id="requesterlbl">
+                        @Html.DisplayNameFor(model => model.GHka)
+                    </td>
+                    <td>
+                        <div id="inputrequester">
+                            <div class="pull-right" id="tt">
+                                <table id="tpFromTime" class="texttime" style="direction:ltr">
+                                    <tbody>
+                                        <tr id="tbvorood">
+                                            <td>
+                                                @Html.DisplayFor(model => model.GHka)
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        @*<div class="pull-right lblshifttime" id="lblShiftFromTime"></div>*@
+                    </td>
+                </tr>
+                <tr id="trrequesterindex">
+                    <td id="requesterlbl">
+                        @Html.DisplayNameFor(model => model.Regdate)
+                    </td>
+                    <td>
+                        <div id="inputrequester">
+                            <div class="pull-right" id="tt">
+                                <table id="tpFromTime" class="texttime" style="direction:ltr">
+                                    <tbody>
+                                        <tr id="tbvorood">
+                                            <td>
+                                                @Html.DisplayFor(model => model.Regdate.Year)/@Html.DisplayFor(model => model.Regdate.Month)/@Html.DisplayFor(model => model.Regdate.Day)
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        @*<div class="pull-right lblshifttime" id="lblShiftFromTime"></div>*@
+                    </td>
+            </tbody>
+        </table>
+        <p class="pull-left col-md-6">
+            @Html.ActionLink("ویرایش", "Edit", new { id = Model.Id }) |
+            @Html.ActionLink("بازگشت به لیست", "Index")
+        </p>
+
+    </div>
+
+</div>
+
+

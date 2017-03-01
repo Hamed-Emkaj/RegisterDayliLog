@@ -1,0 +1,161 @@
+﻿@using DayliLogs.Model;
+@model IEnumerable<DayliLogs.Web.Areas.Admin.ViewModels.ProjectForViwVM>
+@{
+    ViewBag.Title = "GozareshPro";
+    Layout = "~/Areas/Admin/Views/Shared/_InsideLayout.cshtml";
+    var AUser = ViewBag.AUser;
+}
+
+<div class="panel panel-primary panel-data">
+    <div class="panel-heading">
+        <h3 class="panel-title">گزارشات پروژه های ثبت شده </h3>
+    </div>
+    <div class="panel-body">
+        <div class="panelunitheader">
+
+            <table border="1" class="col-md-12">
+                <tbody>
+                    <tr>
+                        <td colspan="5" class="centertext col-md-12 table2excel" style="background-color: #eaeaea">لیست پروژه های ثبت شده </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="table table-responsive">
+                <table border="1" class="col-md-12 table-responsive table2excel" id="Data">
+                    <tbody>
+                        <tr class="centertext">
+                            <td class="col-md-1">ردیف</td>
+                            <td class="col-md-5 ">نام پروژه</td>
+                            <td class="col-md-2 ">تاریخ شروع</td>
+                            <td class="col-md-2 ">تاریخ پایان</td>
+                            <td class="col-md-2 ">اعضای تیم</td>
+                        </tr>
+                        @foreach (var item in Model)
+                        {
+                            <tr class="centertext">
+                                <td class="col-md-1">
+                                    <div class="scrolbar"> @item.Counter</div>
+                                </td>
+                                <td class="col-md-2">
+                                    <div class="scrolbar"> <span id="nf">@item.NameProject</span></div>
+                                </td>
+                                <td class="col-sm-1">
+                                    <div class="scrolbar">@item.Start</div>
+                                </td>
+                                <td class="col-md-1">
+                                    <div class="scrolbar">@item.End</div>
+                                </td>
+                                <td>
+                                    <select class="selectpicker" name="Requester">
+                                        @if (item.User01 != "admin admin")
+                                        {
+                                            <option value="1">@item.User01</option>
+                                        }
+                                        @if (item.User02 != "admin admin")
+                                        {
+                                            <option value="1">@item.User02</option>
+                                        }
+                                        @if (item.User03 != "admin admin")
+                                        {
+                                            <option value="1">@item.User03</option>
+                                        }
+                                        @if (item.User04 != "admin admin")
+                                        {
+                                            <option value="1">@item.User04</option>
+                                        }
+                                        @if (item.User05 != "admin admin")
+                                        {
+                                            <option value="1">@item.User05</option>
+                                        }
+                                        @if (item.User06 != "admin admin")
+                                        {
+                                            <option value="1">@item.User06</option>
+                                        }
+                                        @if (item.User07 != "admin admin")
+                                        {
+                                            <option value="1">@item.User07</option>
+                                        }
+                                        @if (item.User08 != "admin admin")
+                                        {
+                                            <option value="1">@item.User08</option>
+                                        }
+                                        @if (item.User09 != "admin admin")
+                                        {
+                                            <option value="1">@item.User09</option>
+                                        }
+                                        @if (item.User10 != "admin admin")
+                                        {
+                                            <option value="1">@item.User10</option>
+                                        }
+                                    </select>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <br />
+        <div class="crudbtn">
+            <div class="divider"></div>
+
+            <span>
+                <button type="button" class="btn btn-default cancelbutton pull-left" onclick="cancelSaveEntity(this, '@Url.Action("Index", "AdminUser")')" role="button"><i class="glyphicon glyphicon-chevron-left"></i>انصراف</button>
+            </span>
+
+        </div>
+
+    </div>
+      
+    </div>
+
+</div>
+<script src="~/Scripts/jquery-1.9.1.min.js"></script>
+<script src="~/Scripts/jquery.table2excel.min.js"></script>
+
+<script type="text/javascript">
+
+
+    $("#submitButton").hide();
+    $(document).mousemove(function ()
+    {
+        var str = document.getElementById("datepicker").value;
+        var res = str.match(/^(\d{4})(\/|-)(\d{1,2})(\/|-)(\d{1,2})$/);
+        if ($("#datepicker").val() != '' && res != null && $("#nf").val() != "") {
+            $("#submitButton").show();
+        }
+        else {
+            $("#submitButton").hide();
+        }
+    });
+    $("#trMoType").hide();
+    $("#trAz").hide();
+    $("#lbl").hide();
+    $("#trTa").hide();
+    $("#tt").hide();
+    $("#trFromDate").hide();
+    $("#submitButton").hide();
+    $("#submitButton").hide();
+    $("#trrequester").hide();
+    $("#trtozihat").hide();
+    $("#tronvan").hide();
+    $("#trtedad").hide();
+    $("#Data > tbody > :contains('ردیف')").addClass('Header');
+    $("#Data > tbody > :contains('ماموریت اداری')").addClass('yellow');
+    $("#Data > tbody > :contains('مرخصی ساعتی')").addClass('blue');
+    $("#Data > tbody > :contains('فعالیت کاری')").addClass('green');
+    $("#Data > tbody > :contains('فعالیت غیر کاری')").addClass('red');
+    var s =   new Date().toLocaleDateString() +" " + new Date().toLocaleTimeString()   ;
+    $("#Data").table2excel({
+        
+        exclude: ".excludeThisClass",
+        name: "Excel Workbook",
+        filename: "لیست پروژه های ثبت شده" +  s ,//do not include extension
+        fileext: ".xls",
+        exclude_img: true,
+        exclude_links: true,
+        exclude_inputs: true
+    });
+
+
+</script>

@@ -1,0 +1,171 @@
+﻿<!-- Admin Area-->
+<!DOCTYPE html>
+<html>
+@{
+    var AUser = ViewBag.AUser;
+}
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سامانه ثبت گزارش کار روزانه به پرداخت ملت</title>
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <meta http-equiv="Cache-Control" content="no-cache" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <link href="~/Content/jquery.dataTables.css" rel="stylesheet" />
+    <link href="~/Content/jquery.dataTables-rtl.css" rel="stylesheet" />
+    <link href="~/Content/jquery-ui-1.10.4.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/MdBootstrapPersianDateTimePicker/jquery.Bootstrap-PersianDateTimePicker.min.css" rel="stylesheet" />
+    <link href="~/Content/PersianDatePicker.min.css" rel="stylesheet" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
+
+</head>
+<body onload="noBack();" onpageshow="if (event.persisted) noBack();" onunload="">
+    <script type="text/javascript">
+        window.history.forward();
+        function noBack() { window.history.forward(); }
+    </script>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header navbar-text">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <span><a href="@Url.Action("Enter", "Home")" class="Titel01">خروج</a></span>
+
+                <div id="wrapper" dir="rtl">
+                    <div class="navbar navbar-inverse navbar-fixed-top" dir="rtl">
+                        <div class="navbar-inner">
+                            <div style="float: right; width: 100%">
+                                <div class="container">
+                                    <div class="navbar-exit pull-left" style="background-color:brown">
+                                        <i class="glyphicon glyphicon-off">
+                                        </i>
+                                        <span><a href="@Url.Action("Index", "Home" ,new { area = "" })" class="Exitbtn">خروج</a></span>
+                                    </div>
+                                    <div class="navbar-header">
+                                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
+                                        </button>
+                                        <a class="navbar-brand applicationtitle" href="">سامانه ثبت گزارش کار روزانه به پرداخت ملت</a>
+                                    </div>
+                                    <div class="navbar-collapse collapse">
+                                        <ul class="nav navbar-nav pull-right">
+                                            <li class="dropdown">
+                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">گزارشات<span class="caret"></span></a>
+                                                <ul class="dropdown-menu" role="menu">
+                                                    <li class="dropdown-submenu">
+                                                        <a tabindex="-1">گزارش روزانه</a>
+                                                        <ul class="dropdown-menu pull-right" style="margin-right: 100px">
+                                                            <li class="dropdown-submenu ullevel2">
+                                                                <a tabindex="-1">گزارش ثبت شده</a>
+                                                                <ul class="dropdown-menu ullevel3 pull-right">
+                                                                    <li>
+                                                                        <a href= " @Url.Action("GozareshPro", "Gozareshat", new { area = "Admin" })">گزارش پروژه های ثبت شده</a>
+                                                                    </li>
+                                                                    <div class="divider"></div>
+                                                                    <li>
+                                                                        <a href=" @Url.Action("GozareshLogDuration", "Gozareshat", new { area = "Admin" })">گزارش عملکرد کارمندان</a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="">گزارش حضور غیاب کارمندان</a>
+                                                                    </li>
+                                                                </ul>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li class="dropdown">
+                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">پروژه<span class="caret"></span></a>
+                                                <ul class="dropdown-menu" role="menu">
+                                                    <li class="dropdown-submenu">
+                                                        <a href="" tabindex="-1">اضافه کردن پروژه</a>
+                                                        <ul class="dropdown-menu pull-right" style="margin-right: 100px">
+                                                            <li class="dropdown">
+                                                                <a href="@Url.Action("Index", "AddProject")">پروژه </a>
+
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+
+                                                </ul>
+                                            </li>
+                                            <li class="dropdown">
+                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">ویرایش<span class="caret"></span></a>
+                                                <ul class="dropdown-menu" role="menu">
+                                                    <li class="dropdown-submenu">
+                                                        <a href="" tabindex="-1">گزارش روزانه</a>
+                                                        <ul class="dropdown-menu pull-right" style="margin-right: 100px">
+                                                            <li class="dropdown-submenu ullevel2">
+                                                                <a tabindex="-1">گزارش ثبت شده</a>
+                                                                <ul class="dropdown-menu ullevel3 pull-right">
+                                                                    <li>
+                                                                        <a href="@Url.Action("Index","LogRoozanes")">ثبت شده روز جاری</a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="@Url.Action("WithDateEditGet","LogRoozaneWithDate")">بر اساس تاریخ</a>
+                                                                    </li>
+                                                                </ul>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+
+                                                </ul>
+                                            </li>
+                                            <li class="dropdown">
+                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">ثبت<span class="caret"></span></a>
+                                                <ul class="dropdown-menu" role="menu">
+                                                    <li><a href="@Url.Action("AddDay","Home" , new { area = "Admin" })">ورود و خروج روزانه</a></li>
+                                                    <br />
+                                                    <li><a href="@Url.Action("AddLog","Home", new { area = "Admin" })">گزارش روزانه</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="navbar-userinfo" style="">
+                                                <i class="glyphicon glyphicon-user">
+                                                </i>
+                                                
+                                                
+                                                <span class="userdescription" style="margin: 0 2px 0 0;">@AUser.Name @AUser.Family (Admin) </span>
+                                                
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="divMessageWait" class="divMessageWait"></div>
+    <input type="hidden" id="serverErrorMessage" data-value="">
+    @*آغاز تگ فوتر *@
+    <div class="container body-content">
+        @RenderBody()
+        <footer>
+            <div>
+                <p style="font-size: 15px">@DateTime.Now.Year © - شرکت به پرداخت ملت  </p>
+            </div>
+        </footer>
+    </div>
+    <script src="~/Scripts/jquery.dataTables.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery-ui-1.9.2.custom.min.js"></script>
+    <script src="~/Scripts/main.js"></script>
+    <script src="~/Scripts/main-datatable.js"></script>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/PersianDatePicker.min.js"></script>
+</body>
+</html>
+
+

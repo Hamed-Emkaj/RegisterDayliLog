@@ -1,0 +1,102 @@
+D:\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\roslyn\csc.exe
+D:\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\roslyn\System.Collections.Immutable.dll
+D:\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\roslyn\System.Reflection.Metadata.dll
+D:\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\roslyn\vbc.exe
+D:\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\roslyn\VBCSCompiler.exe
+D:\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\roslyn\VBCSCompiler.exe.config
+D:\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\DayliLogs.Web.dll.config
+D:\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\DayliLogs.Web.dll
+D:\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\DayliLogs.Web.pdb
+D:\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\DayliLogs.Model.dll
+D:\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\EntityFramework.dll
+D:\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\EntityFramework.SqlServer.dll
+D:\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\Microsoft.Web.Infrastructure.dll
+D:\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\Newtonsoft.Json.dll
+D:\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\System.Net.Http.Formatting.dll
+D:\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\System.Web.Helpers.dll
+D:\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\System.Web.Http.dll
+D:\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\System.Web.Http.WebHost.dll
+D:\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\System.Web.Mvc.dll
+D:\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\System.Web.Razor.dll
+D:\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\System.Web.Webpages.Deployment.dll
+D:\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\System.Web.Webpages.dll
+D:\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\System.Web.Webpages.Razor.dll
+D:\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\DayliLogs.Model.pdb
+D:\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\EntityFramework.xml
+D:\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\EntityFramework.SqlServer.xml
+D:\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\System.Web.Razor.xml
+D:\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\System.Web.Webpages.xml
+D:\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\System.Web.Webpages.Deployment.xml
+D:\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\System.Web.Webpages.Razor.xml
+D:\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\System.Web.Helpers.xml
+D:\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\System.Web.Mvc.xml
+D:\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\Newtonsoft.Json.xml
+D:\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\System.Net.Http.Formatting.xml
+D:\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\System.Web.Http.xml
+D:\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\System.Web.Http.WebHost.xml
+D:\Dayli Logs\DayliLogs.Web\DayliLogs.Web\obj\Debug\DayliLogs.Web.csprojResolveAssemblyReference.cache
+D:\Dayli Logs\DayliLogs.Web\DayliLogs.Web\obj\Debug\DayliLogs.Web.dll
+D:\Dayli Logs\DayliLogs.Web\DayliLogs.Web\obj\Debug\DayliLogs.Web.pdb
+D:\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\MD.PersianDateTime.dll
+D:\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\MD.PersianDateTime.pdb
+D:\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\MD.PersianDateTime.xml
+D:\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\ExcelLibrary.dll
+D:\Backup Bultin Site\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\roslyn\csc.exe
+D:\Backup Bultin Site\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Backup Bultin Site\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Backup Bultin Site\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Backup Bultin Site\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Backup Bultin Site\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Backup Bultin Site\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Backup Bultin Site\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\roslyn\System.Collections.Immutable.dll
+D:\Backup Bultin Site\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\roslyn\System.Reflection.Metadata.dll
+D:\Backup Bultin Site\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\roslyn\vbc.exe
+D:\Backup Bultin Site\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\roslyn\VBCSCompiler.exe
+D:\Backup Bultin Site\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\roslyn\VBCSCompiler.exe.config
+D:\Backup Bultin Site\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\DayliLogs.Web.dll.config
+D:\Backup Bultin Site\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\DayliLogs.Web.dll
+D:\Backup Bultin Site\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\DayliLogs.Web.pdb
+D:\Backup Bultin Site\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\DayliLogs.Model.dll
+D:\Backup Bultin Site\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\EntityFramework.dll
+D:\Backup Bultin Site\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\EntityFramework.SqlServer.dll
+D:\Backup Bultin Site\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\ExcelLibrary.dll
+D:\Backup Bultin Site\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\MD.PersianDateTime.dll
+D:\Backup Bultin Site\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Backup Bultin Site\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\Microsoft.Web.Infrastructure.dll
+D:\Backup Bultin Site\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\Newtonsoft.Json.dll
+D:\Backup Bultin Site\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\System.Net.Http.Formatting.dll
+D:\Backup Bultin Site\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\System.Web.Helpers.dll
+D:\Backup Bultin Site\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\System.Web.Http.dll
+D:\Backup Bultin Site\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\System.Web.Http.WebHost.dll
+D:\Backup Bultin Site\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\System.Web.Mvc.dll
+D:\Backup Bultin Site\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\System.Web.Razor.dll
+D:\Backup Bultin Site\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\System.Web.Webpages.Deployment.dll
+D:\Backup Bultin Site\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\System.Web.Webpages.dll
+D:\Backup Bultin Site\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\System.Web.Webpages.Razor.dll
+D:\Backup Bultin Site\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\DayliLogs.Model.pdb
+D:\Backup Bultin Site\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\EntityFramework.xml
+D:\Backup Bultin Site\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\EntityFramework.SqlServer.xml
+D:\Backup Bultin Site\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\MD.PersianDateTime.pdb
+D:\Backup Bultin Site\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\MD.PersianDateTime.xml
+D:\Backup Bultin Site\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Backup Bultin Site\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\System.Web.Razor.xml
+D:\Backup Bultin Site\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\System.Web.Webpages.xml
+D:\Backup Bultin Site\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\System.Web.Webpages.Deployment.xml
+D:\Backup Bultin Site\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\System.Web.Webpages.Razor.xml
+D:\Backup Bultin Site\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\System.Web.Helpers.xml
+D:\Backup Bultin Site\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\System.Web.Mvc.xml
+D:\Backup Bultin Site\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\Newtonsoft.Json.xml
+D:\Backup Bultin Site\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\System.Net.Http.Formatting.xml
+D:\Backup Bultin Site\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\System.Web.Http.xml
+D:\Backup Bultin Site\Dayli Logs\DayliLogs.Web\DayliLogs.Web\bin\System.Web.Http.WebHost.xml
+D:\Backup Bultin Site\Dayli Logs\DayliLogs.Web\DayliLogs.Web\obj\Debug\DayliLogs.Web.csprojResolveAssemblyReference.cache
+D:\Backup Bultin Site\Dayli Logs\DayliLogs.Web\DayliLogs.Web\obj\Debug\DayliLogs.Web.dll
+D:\Backup Bultin Site\Dayli Logs\DayliLogs.Web\DayliLogs.Web\obj\Debug\DayliLogs.Web.pdb

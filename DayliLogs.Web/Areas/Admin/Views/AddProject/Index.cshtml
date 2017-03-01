@@ -1,0 +1,189 @@
+﻿@model DayliLogs.Web.ViewModels.TotalModelVM
+@{
+    ViewBag.Title = "AddDay";
+    Layout = "~/Areas/Admin/Views/Shared/_InsideLayout.cshtml";
+    var Datetoday = ViewBag.datetoday;
+    var CS = ViewBag.cs;
+    var UserList = ViewBag.userlist;
+}
+<script src="~/Scripts/PersianDatePicker.js"></script>
+<script src="~/Scripts/jquery-1.9.1.min.js"></script>
+
+<script>
+    function dt01()
+    {
+        PersianDatePicker.Show(document.getElementById("datepicker01"), "@Datetoday");
+    }
+    function dt02()
+    {
+        PersianDatePicker.Show(document.getElementById("datepicker02"), "@Datetoday");
+    }
+</script>
+<div class="panel panel-primary panel-data">
+    <div class="panel-heading">
+        <h3 class="panel-title">ثبت ساعت ورود خروج</h3>
+    </div>
+    <div class="panel-body">
+        @using (Html.BeginForm("InsertProject", "AddProject", FormMethod.Post, new { @id = "mainform", enctype = "multipart/form-data" }))
+        {
+            <table class="table table-bordered table-striped display field-datatable tbl-requestdoc">
+                <thead>
+                </thead>
+                <tbody>
+                    <tr>
+                        <div class="alert alert-danger alert-dismissable" style="display:none" id="datealert">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                            فیلد تاریخ نمیتواند خالی باشد
+                        </div>
+                    </tr>
+                    <tr id="trFromDate">
+                        <td> تاریخ شروع:</td>
+                        <td>
+                            <div class="calendar-container">
+                                @*ورود تاریخ*@
+                                <input type="text" autocomplete="off" id="datepicker01" name="Date01"
+                                       value="" class="form-control valid" aria-required="true" aria-invalid="false" />
+                                <img title="تقویم" onclick="dt01()" src="/images/calendar-icon.png">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr id="trFromDate">
+                        <td>تاریخ پایان:</td>
+                        <td>
+                            <div class="calendar-container">
+                                @*ورود تاریخ*@
+                                <input type="text" autocomplete="off" id="datepicker02" name="Date02"
+                                       value="" class="form-control valid" aria-required="true" aria-invalid="false" />
+                                <img title="تقویم" onclick="dt02()" src="/images/calendar-icon.png">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr id="pname">
+                        <td style="width: 120px">
+                            نام پروژه:
+                        </td>
+                        <td>
+                            <input type="text" autocomplete="off" id="pname01" name="PName"
+                                   value="" class="form-control valid" aria-required="true" aria-invalid="false" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            نام اعضای تیم :
+                        </td>
+                        <td class="bluetext">
+                             
+                            @if (UserList.Count > 2 )
+                            {
+                                <span id="sp01"> @UserList[1].Name @UserList[1].Family</span>
+                                <input type="checkbox" class="chbHasTime" id="chk1" name="Name01" style="margin: 10px 5px;" />
+                            }
+                            @if (UserList.Count > 3)
+                            {
+                                <span id="sp02">@UserList[2].Name @UserList[2].Family </span>
+                                <input type="checkbox" class="chbHasTime" id="chk2" name="Name02" style="margin: 10px 5px;" />
+                            }
+                            @if (UserList.Count > 4)
+                            {
+                                <span id="sp03">@UserList[3].Name @UserList[3].Family </span>
+                                <input type="checkbox" class="chbHasTime01" id="chk3" name="Name03" style="margin: 10px 5px;" />
+                            }
+                            @if (UserList.Count > 5)
+                            {
+                                <span id="sp04">@UserList[4].Name @UserList[4].Family </span>
+                                <input type="checkbox" class="chbHasTime" id="chk4" name="Name04" style="margin: 10px 5px;" />
+                            }
+                            @if (UserList.Count > 6)
+                            {
+                                <span id="sp05">@UserList[5].Name @UserList[5].Family </span>
+                                <input type="checkbox" class="chbHasTime" id="chk5" name="Name05" style="margin: 10px 5px;" />
+                            }
+                            @if (UserList.Count > 7)
+                            {
+                                <span id="sp06">@UserList[6].Name @UserList[6].Family </span>
+                                <input type="checkbox" class="chbHasTime" id="chk6" name="Name06" style="margin: 10px 5px;" />
+                            }
+                            @if (UserList.Count > 8)
+                            {
+                                <span id="sp07">@UserList[7].Name @UserList[7].Family </span>
+                                <input type="checkbox" class="chbHasTime" id="chk7" name="Name07" style="margin: 10px 5px;" />
+                            }
+                            @if (UserList.Count > 9)
+                            {
+                                <span id="sp08">@UserList[8].Name @UserList[8].Family </span>
+                                <input type="checkbox" class="chbHasTime" id="chk8" name="Name08" style="margin: 10px 5px;" />
+                            }
+                            @if (UserList.Count > 10)
+                            {
+                                <span id="sp09">@UserList[9].Name @UserList[9].Family </span>
+                                <input type="checkbox" class="chbHasTime" id="chk9" name="Name09" style="margin: 10px 5px;" />
+                            }
+                            @if (UserList.Count > 11)
+                            {
+                                <span id="sp10">@UserList[10].Name @UserList[10].Family </span>
+                                <input type="checkbox" class="chbHasTime" id="chk10" name="Name10" style="margin: 10px 5px;" />
+                            }
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            تاریخ وزمان ثبت:
+                        </td>
+                        <td class="bluetext">
+                            @CS
+                        </td>
+                    </tr>
+
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <div class="crudbtn">
+                                <button type="submit" id="submitButton" name="submit01" class="btn btn-default savebutton"><i class="glyphicon glyphicon-floppy-save saveentity"></i>ارسال</button><span>
+                                </span><button type="button" class="btn btn-default cancelbutton" onclick="cancelSaveEntity(this, '@Url.Action("Enter", "Home")')" role="button"><i class="glyphicon glyphicon-chevron-left"></i>انصراف</button>
+                            </div>
+                            <span class="field-validation-valid" data-valmsg-for="ServerError" data-valmsg-replace="true"></span>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        }
+    </div>
+</div>
+<script src="~/Scripts/jquery-1.9.1.min.js"></script>
+<script type="text/javascript">
+    $("#submitButton").hide();
+    $(document).mousemove(function ()
+    {
+        var str01 = document.getElementById("datepicker01").value;
+        var str02 = document.getElementById("datepicker02").value;
+        var res01 = str01.match(/^(\d{4})(\/|-)(\d{1,2})(\/|-)(\d{1,2})$/);
+        var res02 = str02.match(/^(\d{4})(\/|-)(\d{1,2})(\/|-)(\d{1,2})$/);
+        if (res01 != null && res02 != null && $("#pname01").val() != '' && $("#datepicker01").val() != '' && $("#datepicker02").val() != '') {
+            $("#submitButton").show();
+        }
+        else {
+            $("#submitButton").hide();
+        }
+    });
+    $(function ()
+    {
+        $("#chk").click(function ()
+        {
+            if ($(this).is(":checked")) {
+                $("#trToTime").hide();
+                $("#lblShiftFromTime").hide();
+                $("#tt").hide();
+                $("#trFromTime").hide();
+            } else {
+                $("#trFromTime").show();
+                $("#tt").show();
+                $("#trToTime").show();
+                $("#lblShiftFromTime").show();
+            }
+        });
+    });
+</script>
+

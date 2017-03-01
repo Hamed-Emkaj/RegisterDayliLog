@@ -1,0 +1,137 @@
+﻿
+@model IEnumerable<DayliLogs.Model.User>
+
+@{
+    ViewBag.Title = "GozareshLogDuration";
+    Layout = "~/Areas/Admin/Views/Shared/_InsideLayout.cshtml";
+    var Datetoday = ViewBag.datetoday;
+    var CS = ViewBag.cs;
+}
+
+<script src="~/Scripts/PersianDatePicker.js"></script>
+<script src="~/Scripts/jquery-1.9.1.min.js"></script>
+
+<script>
+  function dt01() {
+    PersianDatePicker.Show(document.getElementById("datepicker01"), "@Datetoday");
+  }
+    function dt02()
+    {
+        PersianDatePicker.Show(document.getElementById("datepicker02"), "@Datetoday");
+    }
+</script>
+
+
+<div class="panel panel-primary panel-data">
+    <div class="panel-heading">
+        <h3 class="panel-title">ثبت ساعت ورود خروج</h3>
+    </div>
+    <div class="panel-body">
+        @using (Html.BeginForm("Gopost", "Gozareshat", FormMethod.Post, new { @id = "mainform", enctype = "multipart/form-data" }))
+        {
+            <table class="table table-bordered table-striped display field-datatable tbl-requestdoc">
+                <thead>
+                </thead>
+                <tbody>
+                    <tr>
+                        <div class="alert alert-danger alert-dismissable" style="display:none" id="datealert">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                            فیلد تاریخ نمیتواند خالی باشد
+                        </div>
+                    </tr>
+
+                    <tr id="trFromDate">
+                        <td>تاریخ:</td>
+                        <td>
+                            <div class="calendar-container">
+                                @*ورود تاریخ*@
+                                <input type="text" autocomplete="off" id="datepicker01" name="Date01"
+                                       value="" class="form-control valid" aria-required="true" aria-invalid="false" />
+                                <img title="تقویم" onclick="dt01()" src="/images/calendar-icon.png">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr id="trFromDate">
+                        <td>تاریخ:</td>
+                        <td>
+                            <div class="calendar-container">
+                                @*ورود تاریخ*@
+                                <input type="text" autocomplete="off" id="datepicker02" name="Date02"
+                                       value="" class="form-control valid" aria-required="true" aria-invalid="false" />
+                                <img title="تقویم" onclick="dt02()" src="/images/calendar-icon.png">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>نام کاربر</td>
+                        <td>
+                            <select class="selectpicker" name="Requester">
+                                @foreach (var item in Model)
+                                {
+                                    if(item.Name != "admin")
+                                    { 
+                                        <option value="@item.Family">@item.Name @item.Family</option>
+                                    }
+                                }
+                               
+                            </select>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            تاریخ وزمان ثبت:
+                        </td>
+                        <td class="bluetext">
+                            @CS
+                        </td>
+                    </tr>
+
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <div class="crudbtn">
+                                <button type="submit" id="submitButton" name="submit01" class="btn btn-default savebutton"><i class="glyphicon glyphicon-floppy-save saveentity"></i>ارسال</button><span>
+                                </span><button type="button" class="btn btn-default cancelbutton" onclick="cancelSaveEntity(this, '@Url.Action("Index", "AdminUser")')" role="button"><i class="glyphicon glyphicon-chevron-left"></i>انصراف</button>
+                            </div>
+                            <span class="field-validation-valid" data-valmsg-for="ServerError" data-valmsg-replace="true"></span>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        }
+    </div>
+</div>
+<script src="~/Scripts/jquery-1.9.1.min.js"></script>
+<script type="text/javascript">
+  $("#submitButton").hide();
+  $(document).mousemove(function () {
+      var str01 = document.getElementById("datepicker01").value;
+      var str02 = document.getElementById("datepicker01").value;
+      var res01 = str01.match(/^(\d{4})(\/|-)(\d{1,2})(\/|-)(\d{1,2})$/);
+      var res02 = str02.match(/^(\d{4})(\/|-)(\d{1,2})(\/|-)(\d{1,2})$/);
+      if ($("#datepicker01").val() != '' && res01 != null && $("#datepicker02").val() != '' && res02 != null) {
+      $("#submitButton").show();
+    }
+    else {
+      $("#submitButton").hide();
+    }
+  });
+  $(function () {
+    $("#chk").click(function () {
+      if ($(this).is(":checked")) {
+        $("#trToTime").hide();
+        $("#lblShiftFromTime").hide();
+        $("#tt").hide();
+        $("#trFromTime").hide();
+      } else {
+        $("#trFromTime").show();
+        $("#tt").show();
+        $("#trToTime").show();
+        $("#lblShiftFromTime").show();
+      }
+    });
+  });
+</script>

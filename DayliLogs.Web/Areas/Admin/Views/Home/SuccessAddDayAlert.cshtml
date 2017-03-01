@@ -1,0 +1,20 @@
+﻿<!-- Admin Area-->
+@{
+    ViewBag.Title = "SuccessAddDayAlert";
+    Layout = "~/Areas/Admin/Views/Shared/_InsideLayout.cshtml";
+     }
+
+<div class="container">
+  <h2>ثبت موفق</h2>
+  <p>  </p>
+  <div class="alert alert-success">
+    <strong>موفق!</strong> اطلاعات شما با موفقیت ثبت گردید
+  </div>
+  <div class="alert alert-info">
+    <strong>توجه!</strong> جهت بازگشت به منوی اصلی گزینه بازگشت را بفشارید
+  </div>
+  <div class="alert alert-warning">
+   @Html.ActionLink("بازگشت به صفحه اصلی","Enter","Home")
+  </div>
+  
+</div>

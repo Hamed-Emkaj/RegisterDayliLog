@@ -1,0 +1,119 @@
+﻿@model IEnumerable<DayliLogs.Model.LogRoozane>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_InsideLayout.cshtml";
+    var conter = 0;
+}
+<link href="~/Content/Site.css" rel="stylesheet" />
+<div class="panel panel-primary panel-data">
+    <div class="panel-heading">
+        <h3 class="panel-title">ویرایش گزارشات ثبت شده امروز </h3>
+    </div>
+    <div class="panel-body">
+        <div class="panelunitheader">
+            <table border="1" class="col-md-12">
+                <tbody>
+                    <tr>
+                        <td colspan="5" class="centertext col-md-12" style="background-color: #eaeaea">لیست فعالیت های انتخاب شده</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="table table-responsive">
+                <table border="1" class="col-md-12 table-condensed" id="Data">
+                    <tbody>
+                        <tr class="centertext">
+                            <td class="col-xs-1">ردیف</td>
+                            <td class="col-md-1 ">@Html.DisplayNameFor(model => model.Requester)</td>
+                            <td class="col-sm-1 ">@Html.DisplayNameFor(model => model.Az)</td>
+                            <td class="col-md-1 ">@Html.DisplayNameFor(model => model.Ta)</td>
+                            <td class="col-md-1 ">@Html.DisplayNameFor(model => model.Maj)</td>
+                            <td class="col-md-1 ">@Html.DisplayNameFor(model => model.Tozihat)</td>
+                            <td class="col-md-1 ">@Html.DisplayNameFor(model => model.TaskDate)</td>
+                            <td class="col-md-1 ">@Html.DisplayNameFor(model => model.Regdate)</td>
+                            <td class="col-md-1 ">نوع فعالیت</td>
+                            <td class="col-md-1 ">لینک های ویرایش</td>
+                        </tr>
+                        @foreach (var item in Model)
+                        {
+                            <tr class="centertext">
+                                <td class="col-xs-1" width="100px">
+                                    <div class="scrolbar">@{ conter += 1; } @conter</div>
+                                </td>
+                                <td class="col-md-1" width="200px">
+                                    <div class="scrolbar"> @Html.DisplayFor(modelItem => item.Requester)</div>
+                                </td>
+                                <td class="col-md-1" width="200px">
+                                    <div class="scrolbar">@Html.DisplayFor(modelItem => item.Az.Hour):@Html.DisplayFor(modelItem => item.Az.Minute)</div>
+                                </td>
+                                <td class="col-md-1" width="200px">
+                                    <div class="scrolbar">@Html.DisplayFor(modelItem => item.Ta.Hour):@Html.DisplayFor(modelItem => item.Ta.Minute)</div>
+                                </td>
+                                <td class="col-md-1" width="200px">
+                                    <div class="scrolbar">@Html.DisplayFor(modelItem => item.Maj)</div>
+                                </td>
+                                <td class="col-md-2" width="200px">
+                                    <div class="scrolbar">@Html.DisplayFor(modelItem => item.Tozihat)</div>
+                                </td>
+                                <script>
+                                  var s=  jalaali.toJalaali( new Date( @item.TaskDate.Year, @item.TaskDate.Month, @item.TaskDate.Day ) )
+
+                                </script>
+
+                                <td class="col-md-1" width="200px">
+                                    <div class="scrolbar">@Html.DisplayFor(modelItem => item.TaskDate.Year)/@Html.DisplayFor(modelItem => item.TaskDate.Month)/@Html.DisplayFor(modelItem => item.TaskDate.Day) </div>
+                                </td>
+                                <td class="col-md-1" width="200px">
+                                    <div class="scrolbar">@Html.DisplayFor(modelItem => item.Regdate.Year)/@Html.DisplayFor(modelItem => item.Regdate.Month)/@Html.DisplayFor(modelItem => item.Regdate.Day)</div>
+                                </td>
+                                <td class="col-md-1" width="200px">
+                                    @if (item.Ka)
+                                    {
+                                        <div class="scrolbar">@Html.DisplayNameFor(model => model.Ka)</div>
+                                    }
+                                    @if (item.GHka)
+                                    {
+                                        <div class="scrolbar">@Html.DisplayNameFor(model => model.GHka)</div>
+                                    }
+                                    @if (item.Ma)
+                                    {
+                                        <div class="scrolbar">@Html.DisplayNameFor(model => model.Ma)</div>
+                                    }
+                                    @if (item.Mo)
+                                    {
+                                        <div class="scrolbar">@Html.DisplayNameFor(model => model.Mo)</div>
+                                    }
+                                </td>
+                                <td class="col-md-2">
+                                    <span> @Html.ActionLink("ویرایش", "Edit", new { id = item.Id }) </span>||
+                                    <span>
+                                        @Html.ActionLink("جزئیات", "Details", new { id = item.Id })
+                                    </span>||
+                                    <span>@Html.ActionLink("حذف", "Delete", new { id = item.Id })</span>
+                                </td>
+                            </tr>
+                                        }
+
+
+                    </tbody>
+                </table>
+
+
+            </div>
+
+        </div>
+        <br />
+        <div class="crudbtn">
+            <button type="button" class="btn btn-default cancelbutton pull-left " onclick="cancelSaveEntity(this, '@Url.Action("Enter", "Home")')" role="button"><i class="glyphicon glyphicon-chevron-left"></i>انصراف</button>
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/MdBootstrapPersianDateTimePicker/jalaali.js"></script>
+<script src="~/Scripts/jquery-1.9.1.min.js"></script>
+<script>
+	$( "#Data > tbody > :contains('ردیف')" ).addClass( 'Header' );
+	$( "#Data > tbody > :contains('ماموریت اداری')" ).addClass( 'yellow' );
+	$( "#Data > tbody > :contains('مرخصی ساعتی')" ).addClass( 'blue' );
+	$( "#Data > tbody > :contains('فعالیت کاری')" ).addClass( 'green' );
+	$( "#Data > tbody > :contains('فعالیت غیر کاری')" ).addClass( 'red' );
+</script>

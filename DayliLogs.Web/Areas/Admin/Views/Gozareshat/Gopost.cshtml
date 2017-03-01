@@ -1,0 +1,206 @@
+﻿@model DayliLogs.Web.Areas.Admin.ViewModels.GozareshatLogVM
+
+@{
+    ViewBag.Title = "Gopost";
+    Layout = "~/Areas/Admin/Views/Shared/_InsideLayout.cshtml";
+}
+
+
+<div class="panel panel-primary panel-data">
+    <div class="panel-heading">
+        <h3 class="panel-title">گزارشات ثبت شده در تاریخ های انتخاب شده </h3>
+    </div>
+    
+        <div class="panel-body">
+            <div class="panelunitheader">
+
+                <table border="1" class="col-md-12">
+                    <tbody>
+                        <tr>
+                            <td class="col-md-6">
+                                نام کاربر :
+                                <span style="color: blue">@Model.Username</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table border="1" class="col-md-12">
+                    <tbody>
+                        <tr>
+                            <td class="col-md-6">
+                                <table boarder="8" class="col-md-12">
+                                    <tbody>
+                                        <tr>
+                                            <td class="col-md-6">
+                                                تاریخ گزارش از :
+                                                <span style="color: blue">@Model.az</span>
+                                                تا
+                                                <span style="color: blue">@Model.ta</span>
+                                            </td>
+                                            <td class="col-md-6">
+                                                لیست مرخصی های روزانه :
+                                                <select class="selectpicker" name="Morkhasilist">
+                                                    <!--نام پروژه-->
+                                                    @foreach (var item in Model.Morkhasis)
+                                                    {
+                                                        <option value="@item">@item</option>
+                                                    }
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-md-6">
+                                                مجموع کل ساعات حضور :
+                                                <span style="color: blue">@Model.Majkolhozoor</span>
+                                            </td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+
+                            <td class="col-md-6">
+                                <table class="col-md-12">
+                                    <tbody>
+                                        <tr>
+                                            <td class="col-md-6">
+                                                مجموع ساعات کاری :
+                                                <span style="color: blue">@Model.MajKa</span>
+                                            </td>
+                                            <td class="col-md-6">
+                                                مجموع ساعات غیر کاری :
+                                                <span style="color: blue">@Model.MajGhk</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-md-6">
+                                                مجموع ساعات مرخصی روزانه  :
+                                                <span style="color: blue">@Model.MajMo</span>
+                                            </td>
+                                            <td class="col-md-6">
+                                                مجموع ساعات  ماموریت اداری  :
+                                                <span style="color: blue">@Model.MajMa</span>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                    </tbody>
+                </table>
+                <table border="1" class="col-md-12">
+                    <tbody>
+                        <tr>
+                            <td colspan="5" class="centertext col-md-12 table2excel" style="background-color: #eaeaea">فعالیت های ثبت شده در روز جاری</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="table table-responsive">
+                    <table border="1" class="col-md-12 table2excel" id="Data">
+                        <tbody>
+                            <tr class="centertext">
+                                <td class="col-xs-1">ردیف</td>
+                                <td class="col-md-1 ">لیست پروژه ها</td>
+                                <td class="col-sm-1 ">لیست خروجی ها</td>
+                                <td class="col-md-1 ">تعداد خروجی ها</td>
+                            </tr>
+
+                            <tr class="centertext">
+
+                                <td class="col-xs-1" width="100px">
+                                    <div class="scrolbar">1</div>
+                                </td>
+
+                                <td class="col-md-1" width="200px">
+                                    <div class="scrolbar">
+                                        <select class="selectpicker" name="Morkhasilist">
+                                            <!--نام پروژه-->
+                                            @foreach (var item in Model.ProjectNames)
+                                            {
+                                                <option value="@item">@item</option>
+                                            }
+                                        </select>
+
+                                    </div>
+                                </td>
+                                <td class="col-md-1" width="200px">
+                                    <div class="scrolbar">
+                                        <select class="selectpicker" name="Morkhasilist">
+                                            <!--نام پروژه-->
+                                            @foreach (var item in Model.Onvankhorooji)
+                                            {
+                                                <option value="@item">@item</option>
+                                            }
+                                        </select>
+                                    </div>
+                                </td>
+                                <td class="col-md-1" width="200px">
+                                    <div class="scrolbar">@Model.MajKhorooji</div>
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <br />
+            <div class="crudbtn">
+                <div class="divider"></div>
+               
+                <span>
+                    <button type="button" class="btn btn-default cancelbutton pull-left" onclick="cancelSaveEntity(this, '@Url.Action("Index", "AdminUser")')" role="button"><i class="glyphicon glyphicon-chevron-left"></i>انصراف</button>
+                </span>
+                
+            </div>
+            
+        </div>
+</div>
+<script src="~/Scripts/jquery-1.9.1.min.js"></script>
+<script src="~/Scripts/jquery.table2excel.min.js"></script>
+
+<script type="text/javascript">
+
+
+    $("#submitButton").hide();
+    $(document).mousemove(function ()
+    {
+        var str = document.getElementById("datepicker").value;
+        var res = str.match(/^(\d{4})(\/|-)(\d{1,2})(\/|-)(\d{1,2})$/);
+        if ($("#datepicker").val() != '' && res != null) {
+            $("#submitButton").show();
+        }
+        else {
+            $("#submitButton").hide();
+        }
+    });
+    $("#trMoType").hide();
+    $("#trAz").hide();
+    $("#lbl").hide();
+    $("#trTa").hide();
+    $("#tt").hide();
+    $("#trFromDate").hide();
+    $("#submitButton").hide();
+    $("#submitButton").hide();
+    $("#trrequester").hide();
+    $("#trtozihat").hide();
+    $("#tronvan").hide();
+    $("#trtedad").hide();
+    $("#Data > tbody > :contains('ردیف')").addClass('Header');
+    $("#Data > tbody > :contains('ماموریت اداری')").addClass('yellow');
+    $("#Data > tbody > :contains('مرخصی ساعتی')").addClass('blue');
+    $("#Data > tbody > :contains('فعالیت کاری')").addClass('green');
+    $("#Data > tbody > :contains('فعالیت غیر کاری')").addClass('red');
+    var s = new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString();
+    $("#Data").table2excel({
+        exclude: ".excludeThisClass",
+        name: "Excel Workbook",
+        filename: "لیست گزارش  روزانه" + s,//do not include extension
+        fileext: ".xls",
+        exclude_img: true,
+        exclude_links: true,
+        exclude_inputs: true
+    });
+
+
+</script>

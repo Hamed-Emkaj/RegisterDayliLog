@@ -1,0 +1,129 @@
+﻿@model DayliLogs.Model.LogRoozane
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_InsideLayout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>LogRoozane</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Requester)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Requester)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Az)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Az)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Maj)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Maj)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tozihat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tozihat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tedad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tedad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.onvankhorooji)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.onvankhorooji)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TaskDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TaskDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ma)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ma)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ka)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ka)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GHka)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GHka)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Regdate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Regdate)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+          @Html.ActionLink("بازگشت به صفحه اصلی", "WithDateEditGet")
+        </div>
+    }
+</div>

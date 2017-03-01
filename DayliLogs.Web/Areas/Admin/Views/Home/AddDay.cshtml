@@ -1,0 +1,165 @@
+﻿<!-- Admin Area-->
+
+@{
+    ViewBag.Title = "AddDay";
+    Layout = "~/Areas/Admin/Views/Shared/_InsideLayout.cshtml";
+    var Datetoday = ViewBag.datetoday;
+    var CS = ViewBag.cs;
+}
+<script src="~/Scripts/PersianDatePicker.js"></script>
+<script src="~/Scripts/jquery-1.9.1.min.js"></script>
+
+<script>
+  function dt() {
+    PersianDatePicker.Show(document.getElementById("datepicker"), "@Datetoday");
+  }
+</script>
+
+<div class="panel panel-primary panel-data">
+  <div class="panel-heading">
+    <h3 class="panel-title">ثبت ساعت ورود خروج</h3>
+  </div>
+  <div class="panel-body">
+    @using (Html.BeginForm("InsertAddDay", "Home", FormMethod.Post, new { @id = "mainform", enctype = "multipart/form-data" }))
+      {
+      <table class="table table-bordered table-striped display field-datatable tbl-requestdoc">
+        <thead>
+        </thead>
+        <tbody>
+          <tr>
+            <div class="alert alert-danger alert-dismissable" style="display:none" id="datealert">
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+              فیلد تاریخ نمیتواند خالی باشد
+            </div>
+          </tr>
+          
+          <tr id="trFromDate" >
+            <td>تاریخ:</td>
+            <td>
+              <div class="calendar-container">
+                @*ورود تاریخ*@
+                <input type="text" autocomplete="off" id="datepicker" name="Date"
+                       value="" class="form-control valid" aria-required="true" aria-invalid="false" />
+                <img title="تقویم" onclick="dt()" src="/images/calendar-icon.png">
+              </div>
+            </td>
+          </tr>
+
+          <tr id="trFromTime" class="">
+            <td>
+              از ساعت:
+            </td>
+            <td>
+              <div class="pull-right" id="tt">
+                <table id="tpFromTime" class="texttime" style="direction:ltr">
+                  <tbody>
+                    <tr id="tbvorood">
+                      <td>
+                        @*ورود ساعت ، ساعت اول*@
+                        <input type="number" maxlength="2" class="input-sm inputtime txthourfrom aftertimecontrol form-control valid" min="0" max="23" id="tpFromTime_Hour" name="time01hour" value="00" aria-invalid="false">
+                      </td>
+                      <td><span class="timespliter">:</span></td>
+                      <td>
+                        @*ورود دقیقه ، ساعت اول*@
+                        <input type="number" maxlength="2" class="input-sm inputtime txtminfrom form-control valid" min="0" max="59" id="tpFromTime_Min" name="time01min" value="00" aria-invalid="false">
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="pull-right lblshifttime" id="lblShiftFromTime">ساعت ورود معمول: 08:00</div>
+            </td>
+          </tr>
+          <tr id="trToTime">
+            <td>
+              تا ساعت:
+            </td>
+            <td>
+              <div class="pull-right" id="tt">
+                <table id="tpToTime" class="texttime" style="direction:ltr">
+                  <tbody>
+                    <tr id="tbvorood">
+                      <td>
+                        @*ورود ساعت ، ساعت دوم*@
+                        <input type="number" maxlength="2" class="input-sm inputtime txthourfrom aftertimecontrol form-control valid" min="0" max="23" id="tpToTime_Hour" name="time02hour" value="00" aria-invalid="false">
+                      </td>
+                      <td><span class="timespliter">:</span></td>
+                      <td>
+                        @*ورود دقیقه ساعت دوم*@
+                        <input type="number" maxlength="2" class="input-sm inputtime txtminfrom form-control valid" min="0" max="59" id="tpToTime_Min" name="time02min" value="00" aria-invalid="false">
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="pull-right" id="tt">
+              </div>
+              <div class="pull-right lblshifttime" id="lblShiftToTime">ساعت خروج معمول: 16:48</div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              مرخصی روزانه
+            </td>
+            <td class="bluetext">
+              <input type="checkbox" class="chbHasTime" id="chk" name="morkhasi01" style="margin: 10px 5px;" />
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              تاریخ وزمان ثبت:
+            </td>
+            <td class="bluetext">
+              @CS
+            </td>
+          </tr>
+         
+        </tbody>
+        <tfoot>
+          <tr>
+            <td></td>
+            <td>
+              <div class="crudbtn">
+                <button type="submit" id="submitButton" name="submit01" class="btn btn-default savebutton"><i class="glyphicon glyphicon-floppy-save saveentity"></i>ارسال</button><span>
+                </span><button type="button" class="btn btn-default cancelbutton" onclick="cancelSaveEntity(this, '@Url.Action("Index", "AdminUser")')" role="button"><i class="glyphicon glyphicon-chevron-left"></i>انصراف</button>
+              </div>
+              <span class="field-validation-valid" data-valmsg-for="ServerError" data-valmsg-replace="true"></span>
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+      }
+  </div>
+</div>
+<script src="~/Scripts/jquery-1.9.1.min.js"></script>
+<script type="text/javascript">
+  $("#submitButton").hide();
+  $(document).mousemove(function () {
+    var str = document.getElementById("datepicker").value;
+    var res = str.match(/^(\d{4})(\/|-)(\d{1,2})(\/|-)(\d{1,2})$/);
+    if ($("#datepicker").val() != '' && res != null) {
+      $("#submitButton").show();
+    }
+    else {
+      $("#submitButton").hide();
+    }
+  });
+  $(function () {
+    $("#chk").click(function () {
+      if ($(this).is(":checked")) {
+        $("#trToTime").hide();
+        $("#lblShiftFromTime").hide();
+        $("#tt").hide();
+        $("#trFromTime").hide();
+      } else {
+        $("#trFromTime").show();
+        $("#tt").show();
+        $("#trToTime").show();
+        $("#lblShiftFromTime").show();
+      }
+    });
+  });
+</script>
+
+

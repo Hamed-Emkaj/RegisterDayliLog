@@ -1,0 +1,367 @@
+﻿@model DayliLogs.Model.LogRoozane
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_InsideLayout.cshtml";
+}
+
+<div class="panel panel-primary panel-data">
+    <div class="panel-heading">
+        <h3 class="panel-title">ویرایش</h3>
+    </div>
+    <div class="panel-body">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+
+
+            <table class="table table-bordered table-striped display field-datatable tbl-requestdoc">
+                <thead>
+                </thead>
+                <tbody>
+
+
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    @Html.HiddenFor(model => model.Id)
+
+
+                    <tr id="trrequesterindex">
+                        <td id="requesterlbl">
+                            @Html.LabelFor(model => model.Requester, htmlAttributes: new { @class = "control-label col-md-12" })
+                        </td>
+                        <td>
+                            <div id="inputrequester">
+                                <div class="pull-right" id="tt">
+                                    <table id="tpFromTime" class="texttime" style="direction:ltr">
+                                        <tbody>
+                                            <tr id="tbvorood">
+                                                <td>
+                                                    @Html.EditorFor(model => model.Requester, new { htmlAttributes = new { @class = "form-control" } })
+                                                    @Html.ValidationMessageFor(model => model.Requester, "", new { @class = "text-danger" })
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            @*<div class="pull-right lblshifttime" id="lblShiftFromTime"></div>*@
+                        </td>
+                    </tr>
+
+                    <tr id="rtaz">
+                        <td id="azlbl">
+                            @Html.LabelFor(model => model.Az, htmlAttributes: new { @class = "control-label col-md-12" })
+                        </td>
+                        <td>
+                            <div id="inputaz">
+                                <div class="pull-right" id="aztt">
+                                    <table id="tpFromTime" class="texttime" style="direction:rtl">
+                                        <tbody>
+                                            <tr id="tbvorood">
+                                                <td>
+                                                    @Html.EditorFor(model => model.Az, new { htmlAttributes = new { @class = "form-control" } })
+                                                    @Html.ValidationMessageFor(model => model.Az, "", new { @class = "text-danger" })
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            @*<div class="pull-right lblshifttime" id="lblShiftFromTime"></div>*@
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td id="talbl">
+                            @Html.LabelFor(model => model.Ta, htmlAttributes: new { @class = "control-label col-md-12" })
+                        </td>
+                        <td>
+                            <div id="inputaz">
+                                <div class="pull-right" id="aztt">
+                                    <table id="tpFromTime" class="texttime" style="direction:rtl">
+                                        <tbody>
+                                            <tr id="tbvorood">
+                                                <td>
+                                                    @Html.EditorFor(model => model.Ta, new { htmlAttributes = new { @class = "form-control" } })
+                                                    @Html.ValidationMessageFor(model => model.Ta, "", new { @class = "text-danger" })
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            @*<div class="pull-right lblshifttime" id="lblShiftFromTime"></div>*@
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td id="majlbl">
+                            @Html.LabelFor(model => model.Maj, htmlAttributes: new { @class = "control-label col-md-12" })
+                        </td>
+                        <td>
+                            <div>
+                                <div class="pull-right">
+                                    <table id="tpFromTime" class="texttime" style="direction:rtl">
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    @Html.EditorFor(model => model.Maj, new { htmlAttributes = new { @disabled = "disabled", @class = "form-control" } })
+                                                    @Html.ValidationMessageFor(model => model.Maj, "", new { @class = "text-danger" })
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            @*<div class="pull-right lblshifttime" id="lblShiftFromTime"></div>*@
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td id="tozlbl">
+                            @Html.LabelFor(model => model.Tozihat, htmlAttributes: new { @class = "control-label col-md-12" })
+                        </td>
+                        <td>
+                            <div>
+                                <div class="pull-right">
+                                    <table id="tpFromTime" class="texttime" style="direction:rtl">
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    @Html.EditorFor(model => model.Tozihat, new { htmlAttributes = new { @class = "form-control" } })
+                                                    @Html.ValidationMessageFor(model => model.Tozihat, "", new { @class = "text-danger" })
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            @*<div class="pull-right lblshifttime" id="lblShiftFromTime"></div>*@
+                        </td>
+                    </tr>
+                    <tr>
+                        <td id="tedadlbl">
+                            @Html.LabelFor(model => model.Tedad, htmlAttributes: new { @class = "control-label col-md-12" })
+                        </td>
+                        <td>
+                            <div>
+                                <div class="pull-right">
+                                    <table id="tpFromTime" class="texttime" style="direction:rtl">
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    @Html.EditorFor(model => model.Tedad, new { htmlAttributes = new { @class = "form-control" } })
+                                                    @Html.ValidationMessageFor(model => model.Tedad, "", new { @class = "text-danger" })
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            @*<div class="pull-right lblshifttime" id="lblShiftFromTime"></div>*@
+                        </td>
+                    </tr>
+                    <tr>
+                        <td id="onlbl">
+                            @Html.LabelFor(model => model.onvankhorooji, htmlAttributes: new { @class = "control-label col-md-12" })
+                        </td>
+                        <td>
+                            <div>
+                                <div class="pull-right">
+                                    <table id="tpFromTime" class="texttime" style="direction:rtl">
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    @Html.EditorFor(model => model.onvankhorooji, new { htmlAttributes = new { @class = "form-control" } })
+                                                    @Html.ValidationMessageFor(model => model.onvankhorooji, "", new { @class = "text-danger" })
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            @*<div class="pull-right lblshifttime" id="lblShiftFromTime"></div>*@
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td id="tdlbl">
+                            @Html.LabelFor(model => model.TaskDate, htmlAttributes: new { @class = "control-label col-md-12" })
+                        </td>
+                        <td>
+                            <div>
+                                <div class="pull-right">
+                                    <table id="tpFromTime" class="texttime" style="direction:rtl">
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    @Html.EditorFor(model => model.TaskDate, new { htmlAttributes = new { @class = "form-control" } })
+                                                    @Html.ValidationMessageFor(model => model.TaskDate, "", new { @class = "text-danger" })
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            @*<div class="pull-right lblshifttime" id="lblShiftFromTime"></div>*@
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td id="tdlbl">
+                            @Html.LabelFor(model => model.TaskDate, htmlAttributes: new { @class = "control-label col-md-12" })
+                        </td>
+                        <td>
+                            <div>
+                                <div class="pull-right">
+                                    <table id="tpFromTime" class="texttime" style="direction:rtl">
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    @Html.EditorFor(model => model.TaskDate, new { htmlAttributes = new { @class = "form-control" } })
+                                                    @Html.ValidationMessageFor(model => model.TaskDate, "", new { @class = "text-danger" })
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            @*<div class="pull-right lblshifttime" id="lblShiftFromTime"></div>*@
+                        </td>
+                    </tr>
+
+
+
+                    <tr>
+                        <td id="molbl">
+                            @Html.LabelFor(model => model.Mo, htmlAttributes: new { @class = "control-label col-md-12" })
+                        </td>
+                        <td>
+                            <div>
+                                <div class="pull-right">
+                                    <table id="tpFromTime" class="texttime" style="direction:rtl">
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    @Html.EditorFor(model => model.Mo)
+                                                    @Html.ValidationMessageFor(model => model.Mo, "", new { @class = "text-danger" })
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            @*<div class="pull-right lblshifttime" id="lblShiftFromTime"></div>*@
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td id="malbl">
+                            @Html.LabelFor(model => model.Ma, htmlAttributes: new { @class = "control-label col-md-12" })
+                        </td>
+                        <td>
+                            <div>
+                                <div class="pull-right">
+                                    <table id="tpFromTime" class="texttime" style="direction:rtl">
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    @Html.EditorFor(model => model.Ma)
+                                                    @Html.ValidationMessageFor(model => model.Ma, "", new { @class = "text-danger" })
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            @*<div class="pull-right lblshifttime" id="lblShiftFromTime"></div>*@
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td id="kalbl">
+                            @Html.LabelFor(model => model.Ka, htmlAttributes: new { @class = "control-label col-md-12" })
+                        </td>
+                        <td>
+                            <div>
+                                <div class="pull-right">
+                                    <table id="tpFromTime" class="texttime" style="direction:rtl">
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    @Html.EditorFor(model => model.Ka)
+                                                    @Html.ValidationMessageFor(model => model.Ka, "", new { @class = "text-danger" })
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            @*<div class="pull-right lblshifttime" id="lblShiftFromTime"></div>*@
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td id="ghlbl">
+                            @Html.LabelFor(model => model.GHka, htmlAttributes: new { @class = "control-label col-md-12" })
+                        </td>
+                        <td>
+                            <div>
+                                <div class="pull-right">
+                                    <table id="tpFromTime" class="texttime" style="direction:rtl">
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    @Html.EditorFor(model => model.GHka)
+                                                    @Html.ValidationMessageFor(model => model.GHka, "", new { @class = "text-danger" })
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            @*<div class="pull-right lblshifttime" id="lblShiftFromTime"></div>*@
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td id="tlbl">
+                            @Html.LabelFor(model => model.Regdate, htmlAttributes: new { @class = "control-label col-md-12" })
+                        </td>
+                        <td>
+                            <div>
+                                <div class="pull-right">
+                                    <table id="tpFromTime" class="texttime" style="direction:rtl">
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    @Html.EditorFor(model => model.Regdate, new { htmlAttributes = new { @class = "form-control" } })
+                                                    @Html.ValidationMessageFor(model => model.Regdate, "", new { @class = "text-danger" })
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            @*<div class="pull-right lblshifttime" id="lblShiftFromTime"></div>*@
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+                <tr>
+                    <div class="col-md-12  ">
+                        <input type="submit" value="ذخیره" class="btn btn-default pull-left" />
+                    </div>
+                </tr>
+
+        }
+        <div>
+            @Html.ActionLink("بازگشت به لیست", "Index")
+        </div>
+
+    </div>
+</div>
+
